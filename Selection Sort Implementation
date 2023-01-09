@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+int selectionSort ( int A[], int n)
+{
+int i , j, small, temp;
+for( i=0 ; i < n-1 ; i++)
+ {
+ small = i;
+  for( j=i+1 ; j < n ; j++)
+  {
+  if ( A[j] < A[small] )
+  small = j;
+  }
+ temp = A[i];
+ A[i] = A[small];
+ A[small] = temp;
+ }
+}
+void displayArray(int A[],int n)
+{
+ int i;
+ for(i=0;i<n;i++)
+  cout<<A[i]<<" "; cout<<"\n";
+
+ }
+ int main() {
+ int n;
+ cout<<"enter size of array\n"; cin>>n;
+ int A[n],e,i,ans;
+ cout<<"enter elements of array\n";
+
+ for(i=0;i<n;i++)
+ cin>>A[i]; cout<<"Array before sorting\n";
+
+ displayArray(A,n);
+
+ selectionSort(A,n);
+
+ cout<<"Array after sorting\n";
+ displayArray(A,n);
+ return 0;
+}
